@@ -1,6 +1,5 @@
 import socket
 
-# Создаем сокет
 tcp_server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp_server_socket.bind(('localhost', 5252))
 
