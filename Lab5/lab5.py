@@ -7,9 +7,8 @@ import requests
 import random
 import datetime
 from PyQt5.QtWidgets import (
-    QApplication, QMainWindow, QVBoxLayout, QWidget,
-    QLineEdit, QPushButton, QTableView, QMessageBox,
-    QDialog, QFormLayout, QSpinBox, QTextEdit, QLabel, QProgressBar
+    QApplication, QVBoxLayout, QWidget, QMainWindow,
+    QLineEdit, QPushButton, QTableView, QLabel, QProgressBar
 )
 from PyQt5.QtCore import Qt, QAbstractTableModel, QModelIndex
 from PyQt5.QtCore import QTimer
@@ -97,7 +96,7 @@ class DataModel(QAbstractTableModel):
         return self._filtered_data if hasattr(self, '_filtered_data') else self._data
 
 
-class App(QWidget):
+class App(QMainWindow):
     def __init__(self):
         super().__init__()
         self.initUI()
@@ -107,7 +106,12 @@ class App(QWidget):
 
         self.setWindowTitle("Тестовое приложение")
         self.setGeometry(100, 100, 800, 600)
+
+        self.central_widget = QWidget()
+        self.setCentralWidget(self.central_widget)
+
         self.layout = QVBoxLayout()
+        self.central_widget.setLayout(self.layout)
 
         self.search_field = QLineEdit()
         self.search_field.setPlaceholderText("Поиск по заголовку...")
