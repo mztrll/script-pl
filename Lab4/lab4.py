@@ -79,7 +79,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("Приложение с таблицей")
+        self.setWindowTitle("Тестовое приложение")
         self.setGeometry(100, 100, 800, 600)
 
         self.central_widget = QWidget()
