@@ -28,15 +28,12 @@ class MainWindow(QMainWindow):
         self.main_layout = QVBoxLayout()
         self.central_widget.setLayout(self.main_layout)
 
-        # Кнопка для загрузки CSV
         self.load_button = QPushButton("Загрузить данные из CSV")
         self.load_button.clicked.connect(self.load_data)
 
-        # Поле для отображения статистики
         self.stats_label = QLabel("")
         self.stats_label.setVisible(False)
 
-        # Комбобокс для выбора типа графика
         self.diagram_type_label = QLabel("Тип графика:")
         self.diagram_type_combo = QComboBox()
         self.diagram_type_combo.addItems(["Линейный график", "Гистограмма", "Круговая диаграмма"])
@@ -74,7 +71,6 @@ class MainWindow(QMainWindow):
         self.hbox_layout.addWidget(self.boolean_flag)
         self.hbox_layout.addWidget(self.update_button)
 
-        # Поле для отображения графиков
         self.figure = plt.figure()
         self.canvas = FigureCanvas(self.figure)
 
@@ -86,7 +82,6 @@ class MainWindow(QMainWindow):
         self.show()
 
     def load_data(self):
-        # Загрузка данных из CSV-файла
         file_path, _ = QFileDialog.getOpenFileName(self, "Выберите CSV файл", "", "CSV Files (*.csv)")
 
         if file_path:
